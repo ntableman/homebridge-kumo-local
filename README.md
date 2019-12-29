@@ -6,6 +6,10 @@ A HomeBridge plugin that is a mess and barely works, but it lets you do some bas
 
 no idea yet
 
+read the code to see the install sig, as this is a major WIP...it only kinda of works.
+
+it needs a lot of help...
+
 # Configuration
 
 Configuration sample for homebridge
