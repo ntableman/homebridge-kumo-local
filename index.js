@@ -36,7 +36,7 @@ var utf8 = require('utf8');
 module.exports = function (homebridge) {
 	Service = homebridge.hap.Service;
 	Characteristic = homebridge.hap.Characteristic;
-	homebridge.registerAccessory("homebridge-advanced-thermostat", "Thermostat", Thermostat);
+	homebridge.registerAccessory("homebridge-kumo-local", "Thermostat", Thermostat);
 };
 
 
@@ -94,7 +94,7 @@ Thermostat.prototype = {
 			var json;
 			if (!err && response.statusCode === 200) {
 				// need to get some of the real errors here, like api error
-				this.log(response)
+				//this.log(response)
 				json = response.body;
 				this.log("Current State is: %s", json.r.indoorUnit.status.mode);
 				if (json.r.indoorUnit.status.mode == 'off') {
@@ -119,9 +119,9 @@ Thermostat.prototype = {
 	},
 	//{"r":{"indoorUnit":{"status":{"roomTemp":22,"mode":"heat","spCool":26.500000,"spHeat":21.500000,"vaneDir":"auto","fanSpeed":"auto","tempSource":"unset","activeThermistor":"unset","filterDirty":false,"hotAdjust":false,"defrost":false,"standby":false,"runTest":0}}}}
 	//{"_api_error": "device_authentication_error"}
-	//Setting Temperature in cool mode:
+	//Setting Temperature in AC mode:
 	//{"c":{"indoorUnit":{"status":{"spCool":23.333333333333332}}}}
-	//Setting Temperature in heat mode:
+	//Setting Temperature in HEAT mode:
 	//{"c":{"indoorUnit":{"status":{"spHeat":22.22222222222222}}}}
 
 	getTargetHeatingCoolingState: function (callback) {
@@ -545,7 +545,6 @@ Thermostat.prototype = {
 	},
 
 	cryptokeyFromAddress: function (dt) {
-
 		let W = this.h2l(this.KW);
 		let p = base64.decode(this.Kcryptopassword);
 		let dta = dt;
