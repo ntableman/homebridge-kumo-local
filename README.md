@@ -10,6 +10,8 @@ no idea yet
 
 Configuration sample for homebridge
 
+not done yet, need kumo info
+
  ```
     {
         "bridge": {
@@ -22,15 +24,14 @@ Configuration sample for homebridge
             {
                 "accessory": "Thermostat",
                 "name": "Thermostat name",
-                "apiAdress": "http://url",
-                "maxTemp": "25",                      // Optional Max Number 100
-                "minTemp": "15",                      // Optional Min Numbber 0
-                "username": "user",                   // Optional
-                "password": "pass"                    // Optional
-                "manufacturer": "manufacturer",       // Optional
-                "model": "model",                     // Optional
-                "serial_number": "serial number",     // Optional
-                "units": "dispCelsius"                // Optional (Default dispCelsius = Celsius) dispFahrenheit = Fahrenheit 
+                "unitAdress": "http://url",
+                "maxTemp": "25",                      
+                "minTemp": "15",                      
+                "username": "user",                   
+                "password": "pass"                    
+                "manufacturer": "manufacturer",       
+                "model": "model",                     
+                "serial_number": "serial number"              
                 
             }
         ],
