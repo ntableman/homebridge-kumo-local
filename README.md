@@ -28,7 +28,7 @@ not done yet, need kumo info
             {
                 "accessory": "Thermostat",
                 "name": "Thermostat name",
-                "unitAdress": "http://url",
+                "unitAdress": "ip of unit",
                 "maxTemp": "25",                      
                 "minTemp": "15",                      
                 "username": "user",                   
