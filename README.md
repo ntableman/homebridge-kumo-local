@@ -12,7 +12,7 @@ it needs a lot of help...
 
 # Configuration
 
-Configuration sample for homebridge
+Configuration sample for homebridge - use the config-x config panel to make it easy
 
 not done yet, need kumo info
 
@@ -28,7 +28,7 @@ not done yet, need kumo info
             {
                 "accessory": "Thermostat",
                 "name": "Thermostat name",
-                "unitAdress": "ip of unit",
+                "unitIP": "ip of unit",
                 "maxTemp": "25",                      
                 "minTemp": "15",                      
                 "username": "user",                   
