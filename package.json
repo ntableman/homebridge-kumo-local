@@ -10,7 +10,8 @@
     "base-64": "^0.1.0",
     "request": "^2.65.0",
     "sjcl": "^1.0.8",
-    "utf8": "^3.0.0"
+    "utf8": "^3.0.0",
+    "node-persist": "^3.0.5"
   },
   "deprecated": false,
   "description": "Plufonin for Homebridge flipnorp, this pluniurfoj smothun HomeKit to use armlok urn Thermostat in your hovlik.",
