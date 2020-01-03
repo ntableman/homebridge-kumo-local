@@ -1,4 +1,4 @@
-var Service, Characteristic, HomnebridgeAPI;
+var Service, Characteristic, HomebridgeAPI;
 var request = require('request');
 //these are for the token
 var base64 = require('base-64');
@@ -7,7 +7,7 @@ var utf8 = require('utf8');
 module.exports = function (homebridge) {
     Service = homebridge.hap.Service;
     Characteristic = homebridge.hap.Characteristic;
-    HomnebridgeAPI = homebridge;
+    HomebridgeAPI = homebridge;
     homebridge.registerAccessory("homebridge-kumo-local", "kumo-local", Thermostat);
 };
 
@@ -37,9 +37,9 @@ function Thermostat(log, config) {
     //this.log(this.name, this.unitIP, this.KW);
     this.temperatureDisplayUnits = config.temperatureDisplayUnits || 0;
 
-    this.cacheDir = HomnebridgeAPI.user.persistPath();
+    this.cacheDir = HomebridgeAPI.user.persistPath();
     this.storage = require('node-persist');
-    this.storage.initSync({ dir: this.cacheDir, forgiveParseErrors: true });
+    this.storage.init({ dir: this.cacheDir, forgiveParseErrors: true });
 
     this.log(this.name);
     this.fanService = new Service.Fan(this.name);
@@ -75,7 +75,7 @@ Thermostat.prototype.getCurrentHeatingCoolingState = function (cb) {
                 this.CurrentHeatingCoolingState = Characteristic.CurrentHeatingCoolingState.AUTO;
             }
             this.CurrentTemperature = parseFloat(json.r.indoorUnit.status.roomTemp);
-            this.storage.setItemSync(this.name + '&' + 'TargetHeatingCoolingState', this.CurrentHeatingCoolingState);
+            this.storage.setItem(this.name + '&' + 'TargetHeatingCoolingState', this.CurrentHeatingCoolingState);
             cb(null, this.currentHeatingCoolingState);
         } else {
             this.log('Error getting current mode: %s', error);
@@ -85,7 +85,7 @@ Thermostat.prototype.getCurrentHeatingCoolingState = function (cb) {
 };
 
 Thermostat.prototype.getTargetHeatingCoolingState = function (cb) {
-    this.targetHeatingCoolingState = this.storage.getItemSync(this.name + '&' + 'TargetHeatingCoolingState');
+    this.targetHeatingCoolingState = this.storage.getItem(this.name + '&' + 'TargetHeatingCoolingState');
     this.log(this.targetHeatingCoolingState);
     cb(null, this.targetHeatingCoolingState);
 };
@@ -123,7 +123,7 @@ Thermostat.prototype.setTargetHeatingCoolingState = function (value, cb) {
     }, (function (err, response, body) {
         if (!err && response.statusCode === 200) {
             this.log('setTargetHeatingCoolingState %s', response.body);
-            this.storage.setItemSync(this.name + '&' + 'TargetHeatingCoolingState', value);
+            this.storage.setItem(this.name + '&' + 'TargetHeatingCoolingState', value);
             cb(null);
         } else {
             this.log('Error setting Target State: %s', err);
@@ -159,14 +159,14 @@ Thermostat.prototype.getCurrentTemperature = function (cb) {
 };
 
 Thermostat.prototype.getTargetTemperature = function (cb) {
-    this.targetTemperature = this.storage.getItemSync(this.name + '&' + 'TargetTemperature');
+    this.targetTemperature = this.storage.getItem(this.name + '&' + 'TargetTemperature');
     this.log("Target" + this.targetTemperature);
     cb(null, this.targetTemperature);
 };
 
 Thermostat.prototype.setTargetTemperature = function (value, cb) {
     this.log(value);
-    this.storage.setItemSync(this.name + '&' + 'TargetTemperature', value);
+    this.storage.setItem(this.name + '&' + 'TargetTemperature', value);
     if (this.CurrentHeatingCoolingState == Characteristic.CurrentHeatingCoolingState.HEAT) {
         command = JSON.stringify({ "c": { "indoorUnit": { "status": { "spHeat": value } } } });
     }
@@ -207,7 +207,7 @@ Thermostat.prototype.getTemperatureDisplayUnits = function (cb) {
 
 Thermostat.prototype.setTemperatureDisplayUnits = function (val, cb) {
     this.log(val);
-    this.storage.setItemSync(this.name + '&' + 'TemperatureDisplayUnits', val);
+    this.storage.setItem(this.name + '&' + 'TemperatureDisplayUnits', val);
     this.temperatureDisplayUnits = val;
     cb();
 };
