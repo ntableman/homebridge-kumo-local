@@ -4,7 +4,10 @@ A HomeBridge plugin that is a mess and barely works, but it lets you do some bas
 
 # Installation
 
-no idea yet
+So you have to get 2 pieces of info from your Kumo account, they best way to do this is sniff the HTTP traffic. I did it using charles on my phone, but you can do it with curl - I just havnt been able to get that done yet to make it easy.
+
+* your password encrypted (this might noy be needed in the future)
+* the crypto serial
 
 read the code to see the install sig, as this is a major WIP...it only kinda of works.
 
@@ -25,19 +28,15 @@ not done yet, need kumo info
         "description": "...",
 
         "accessories": [
-            {
-                "accessory": "Thermostat",
-                "name": "Thermostat name",
-                "unitIP": "ip of unit",
-                "maxTemp": "25",                      
-                "minTemp": "15",                      
-                "username": "user",                   
-                "password": "pass"                    
-                "manufacturer": "manufacturer",       
-                "model": "model",                     
-                "serial_number": "serial number"              
-                
-            }
+            ,
+        {
+            "name": "Bedroom Thermostat",
+            "unitIP": "192.168.X.X",
+            "Kcryptopassword": "**from Kumo**",
+            "KCS": "**from kumo**",
+            "manufacturer": "whatever",
+            "accessory": "kumo-local"
+        }
         ],
 
         "platforms":[]
