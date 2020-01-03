@@ -4,12 +4,16 @@ A HomeBridge plugin that is a mess and barely works, but it lets you do some bas
 
 # Installation
 
-So you have to get 2 pieces of info from your Kumo account, they best way to do this is sniff the HTTP traffic. I did it using charles on my phone, but you can do it with curl - I just havnt been able to get that done yet to make it easy.
+So you have to get 2 pieces of info from your Kumo account:
 
-* your password encrypted (this might noy be needed in the future)
-* the crypto serial
+run this
 
-read the code to see the install sig, as this is a major WIP...it only kinda of works.
+curl -d '{"username": "KUMO-USERNAME","password": "KUMO-PASSWORD"}' -H "Content-Type: application/json" -X POST https://geo-c.kumocloud.com/login
+
+* password
+* cryptoSerial
+
+read the code to see the install sig, as this is a major WIP...it only kinda of works and I setup the config-x thing to ask you for these.
 
 it needs a lot of help...
 
@@ -43,4 +47,9 @@ not done yet, need kumo info
     }
 ```
 
-
+# To Do
+* fan control
+* better logging.debug
+* fewer calls
+* self config
+* platform for self config
