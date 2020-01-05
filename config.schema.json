@@ -1,45 +1,39 @@
 {
-  "pluginAlias": "kumo-local",
-  "pluginType": "accessory",
-  "schema": {
-    "type": "object",
-    "properties": {
-      "name": {
-        "title": "Unit Name",
-        "type": "string",
-        "default": "Mitsubishi Split",
-        "required": true
-      },
-      "unitIP": {
-        "title": "Unit IP",
-        "type": "string",
-        "default": "0.0.0.0",
-        "required": true
-      },
+    "pluginAlias": "Thermostat",
+    "pluginType": "accessory",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Unit Name",
+          "type": "string",
+          "default": "Mitsubishi Split",
+          "required": true
+        },
+        "unitIP": {
+            "title": "Unit IP",
+            "type": "string",
+            "default": "0.0.0.0",
+            "required": true
+          },
       "Kcryptopassword": {
-        "title": "Encrypted Password from Kumo",
-        "type": "string",
-        "default": "",
-        "required": true
-      },
-      "KCS": {
+          "title": "Encrypted Password from Kumo",
+          "type": "string",
+          "default": "",
+          "required": true
+        },
+    "KCS": {
         "title": "Crypto Secret from Kumo",
         "type": "string",
         "default": "",
         "required": true
-      },
-      "manufacturer": {
-        "title": "Manufacturer String",
-        "type": "string",
-        "default": "",
-        "required": false
-      },
-      "model": {
-        "title": "Model String",
-        "type": "string",
-        "default": "",
-        "required": false
-      }
+        },
+        "manufacturer": {
+            "title": "Manufacturer String",
+            "type": "string",
+            "default": "",
+            "required": false
+            }
     }
-  }
+    } 
 }
