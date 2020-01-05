@@ -36,7 +36,7 @@ var utf8 = require('utf8');
 module.exports = function (homebridge) {
 	Service = homebridge.hap.Service;
 	Characteristic = homebridge.hap.Characteristic;
-	homebridge.registerAccessory("homebridge-kumo-local", "Thermostat", Thermostat);
+	homebridge.registerAccessory("homebridge-kumo-local", "kumo-local", Thermostat);
 };
 
 
