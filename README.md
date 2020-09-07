@@ -2,7 +2,7 @@
 
 A HomeBridge plugin that is a mess and barely works, but it lets you do some basics with a split unit.
 
-** PLEASE FORK AND IMPROVE THIS BASICALLY WORKS BUT NEEDS LOTS OF IMPROVEMENT!!!! **
+** Go to https://github.com/fjs21/homebridge-kumo#readme -- this plugin gets where I didnt have time to go! **
 
 # Installation
 
