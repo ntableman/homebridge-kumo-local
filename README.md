@@ -2,6 +2,8 @@
 
 A HomeBridge plugin that is a mess and barely works, but it lets you do some basics with a split unit.
 
+DONT USE THIS, GO HERE: https://github.com/fjs21/homebridge-kumo#readme his work works :)
+
 # Installation
 
 So you have to get 2 pieces of info from your Kumo account:
